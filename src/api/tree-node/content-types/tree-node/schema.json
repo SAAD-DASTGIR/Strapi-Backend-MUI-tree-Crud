@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tree_nodes",
+  "info": {
+    "singularName": "tree-node",
+    "pluralName": "tree-nodes",
+    "displayName": "Tree-node",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "Node_ID": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tree-node.tree-node",
+      "mappedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tree-node.tree-node",
+      "inversedBy": "parent"
+    }
+  }
+}
